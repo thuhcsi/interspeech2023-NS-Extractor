@@ -1,0 +1,402 @@
+<html lang="en-US"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Demo for InterSpeech2023</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="Abstract">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="accepted by INTERSPEECH 2023.">
+<meta property="og:description" content="accepted to INTERSPEECH 2023.">
+<link rel="canonical" href="https://thuhcsi.github.io/NS-Extractor/">
+<meta property="og:url" content="https://thuhcsi.github.io/NS-Extractor/">
+<meta property="og:site_name" content="Focus on the Sound around You: Monaural Target Speaker Extraction via Distance and Speaker Information">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Abstract">
+<script type="application/ld+json">
+{"description":"accepted by INTERSPEECH 2023.","url":"https://thuhcsi.github.io/NS-Extractor/","@type":"WebSite","headline":"Abstract","name":"Focus on the Sound around You: Monaural Target Speaker Extraction via Distance and Speaker Information","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <img id="lab_logo" src="./assets/images/logo.svg"/>
+          <div>
+              <div style="width: 70%;">
+                <h1 id="project_title">Monaural Target Speaker Extraction via Distance and Speaker Information</h1>
+                <h2 id="project_tagline">accepted by INTERSPEECH 2023.</h2>
+              </div>
+          </div>
+        </header>
+    </div>
+
+              
+  
+</header>
+</div>
+
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="abstract">Abstract</h1>
+
+<p>Previously, Target Speaker Extraction (TSE) has yielded outstanding performance in certain application scenarios for speech enhancement and source separation. However, obtaining auxiliary speaker-related information is still challenging in noisy environments with significant reverberation. inspired by the recently proposed distance-based sound separation, we propose the near sound (NS) extractor, which leverages distance information for TSE to reliably extract speaker information without requiring previous speaker enrolment, called speaker embedding self-enrollment (SESE). Full- & sub-band modeling is introduced to enhance our NS-Extractor's adaptability towards environments with significant reverberation. Experimental results on several cross-datasets demonstrate the effectiveness of our improvements and the excellent performance of our proposed NS-Extractor in different application scenarios.</p>
+
+<h1 id="Comparsion-experiment">Compare with baseline models</h1>
+<p> 
+<ul>
+    <li><strong>Mixture</strong>
+        means the mixture of the speech of near and far speakers, with a different number of speakers in the following three cases.<br></li>
+    <li><strong>GT</strong>
+        means ground truth, which is the speech of one near speaker.<br> </li>
+    <li><strong>LSTM</strong>
+        means our unofficial implementation of <a href="https://google-research.github.io/sound-separation/papers/distance-based-separation-interspeech2022/">Distance-based sound separation</a>.<br> </li>
+    <li><strong>UNet</strong>
+        means a lightweight 10-layer UNet model with five encoder and five decoder layers, the number of filters for a layer for the encoder/decoder is 16, 32, 64, 128, 256.<br></li>
+    <li><strong>Proposed</strong>
+        means our proposed <strong>NS-Extractor</strong>.<br></li>
+    <li><strong>Noticed</strong>:
+        a near speaker is within 1.5 meters of the microphone, while a far speaker is more than 1.5 meters away.</li>
+</ul>
+
+</p>
+          
+
+
+<h3 id="Case1">Case 1: <strong>1</strong> near speaker & <strong>1</strong> far speaker.</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="3" style="text-align: center"><strong>Case 1</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2" style="text-align: center"><strong>Mixture</strong> <br><audio controls=""><source src="./wav/comparsion/case1/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -4.94 dB </td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/comparsion/case1/gt.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center"><img src="./pic/comparsion/case1/mixture.png" alt="mixture" width="50%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case1/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><strong>LSTM</strong><br />  <audio controls=""><source src="./wav/comparsion/case1/lstm.wav" type="audio/wav" /></audio><br> SI-SDR = -3.8dB </td>
+        <td style="text-align: center"><strong>UNet</strong> <br /> <audio controls=""><source src="./wav/comparsion/case1/unet.wav" type="audio/wav" /></audio><br> SI-SDR = 4.62dB</td>
+        <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/comparsion/case1/proposed.wav" type="audio/wav"/></audio><br> SI-SDR = 10.17dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/comparsion/case1/lstm.png" alt="LSTM" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case1/unet.png" alt="UNet" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case1/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="Case2">Case 2: <strong>1</strong> near speaker & <strong>2</strong> far speakers.</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="3" style="text-align: center"><strong>Case 2</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2" style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/comparsion/case2/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -1.21dB </td>
+      <td colspan="1" style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/comparsion/case2/gt.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center"><img src="./pic/comparsion/case2/mixture.png" alt="mixture" width="50%" /></td>
+      <td colspan="1" style="text-align: center"><img src="./pic/comparsion/case2/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><strong>LSTM</strong><br />  <audio controls=""><source src="./wav/comparsion/case2/lstm.wav" type="audio/wav" /></audio><br> SI-SDR = 9.86dB</td>
+        <td style="text-align: center"><strong>UNet</strong> <br /> <audio controls=""><source src="./wav/comparsion/case2/unet.wav" type="audio/wav" /></audio><br> SI-SDR = 10.11dB</td>
+        <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/comparsion/case2/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 13.12dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/lstm.png" alt="LSTM" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/unet.png" alt="UNet" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="Case3">Case 3: <strong>1</strong> near speaker & <strong>3</strong> far speakers.</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="3" style="text-align: center"><strong>Case 3</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="2" style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/comparsion/case3/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -8.46dB</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/comparsion/case3/gt.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center"><img src="./pic/comparsion/case3/mixture.png" alt="mixture" width="50%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case3/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><strong>LSTM</strong><br />  <audio controls=""><source src="./wav/comparsion/case3/lstm.wav" type="audio/wav" /></audio><br> SI-SDR = -0.05dB</td>
+        <td style="text-align: center"><strong>UNet</strong> <br /> <audio controls=""><source src="./wav/comparsion/case3/unet.wav" type="audio/wav" /></audio><br> SI-SDR = -1.86dB</td>
+        <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/comparsion/case3/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 3.94dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/lstm.png" alt="LSTM" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/unet.png" alt="UNet" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/comparsion/case2/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ablation-study1">Ablation Study 1</h1>
+<ul>
+    <li><strong>Mixture</strong>
+        means the mixture of the speech of near and far speakers, with a different number of speakers in the following two cases..<br></li>
+    <li><strong>GT</strong>
+        means ground truth, which is the speech of near speaker.<br> </li>
+    <li><strong>w/o F-Att</strong>
+        means the variant of proposed NS-Extractor without <strong>Frequency-attention</strong> module.<br> </li>
+    <li><strong>w/o T-Att</strong>
+        means the variant of proposed NS-Extractor without <strong>Time-attention</strong> module.<br> </li>
+    <li><strong>w/o SE</strong>
+        means the variant of proposed NS-Extractor without <strong>speaker encoder</strong> module.<br> </li>
+    <li><strong>Proposed</strong>
+        means our proposed <strong>NS-Extractor</strong>.<br></li>
+    <li><strong>Noticed</strong>
+        a near speaker is within 1.5 meters of the microphone, while a far speaker is more than 1.5 meters away.</li>
+</ul>
+
+<h3 id="case1">Case 1: <strong>1</strong> near speaker & <strong>1</strong> far speaker</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3" style="text-align: center"><strong>Case 1</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation1/case1/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -4.84dB </td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation1/case1/gt.wav" type="audio/wav" /></audio></td>
+      <td style="text-align: center"><strong>Proposed</strong> <br />  <audio controls=""><source src="./wav/ablation1/case1/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 15.73dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/mixture.png" alt="mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/gt.png" alt="GT" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o F-Att</strong><br />  <audio controls=""><source src="./wav/ablation1/case1/fatt.wav" type="audio/wav" /></audio><br> SI-SDR = 14.84dB</td>
+      <td style="text-align: center"><strong>w/o T-Att</strong> <br /> <audio controls=""><source src="./wav/ablation1/case1/tatt.wav" type="audio/wav" /></audio><br> SI-SDR = 12.71dB</td>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation1/case1/se.wav" type="audio/wav" /></audio><br> SI-SDR = 15.73dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/fatt.png" alt="w/o F-Att" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/tatt.png" alt="w/o T-Att" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case1/se.png" alt="w/o SE" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="case2">Case 2: <strong>1</strong> near speaker & <strong>2</strong> far speakers.</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="3" style="text-align: center"><strong>Case 2</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation1/case2/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -4.27</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation1/case2/gt.wav" type="audio/wav" /></audio><br></td>
+      <td style="text-align: center"><strong>Proposed</strong> <br />  <audio controls=""><source src="./wav/ablation1/case2/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 7.13dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/mixture.png" alt="mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/gt.png" alt="GT" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o F-Att</strong><br />  <audio controls=""><source src="./wav/ablation1/case2/fatt.wav" type="audio/wav" /></audio><br> SI-SDR = 4.19dB</td>
+      <td style="text-align: center"><strong>w/o T-Att</strong> <br /> <audio controls=""><source src="./wav/ablation1/case2/tatt.wav" type="audio/wav" /></audio><br> SI-SDR = 3.67dB</td>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation1/case2/se.wav" type="audio/wav" /></audio><br> SI-SDR = -2.25dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/fatt.png" alt="w/o F-Att" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/tatt.png" alt="w/o T-Att" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation1/case2/se.png" alt="w/o SE" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1 id="ablation-study2">Ablation Study 2</h1>
+
+<ul>
+    <li><strong>Mixture</strong>
+    means the mixture of the speech of near and far speakers.<br></li>
+    <li><strong>GT</strong>
+        means ground truth, which is the speech of one near speaker.<br> </li>
+    <li><strong>w/o SE</strong>
+        means the variant of proposed NS-Extractor without <strong>speaker encoder</strong> module.<br></li> 
+    <li><strong>Proposed</strong>
+        means our proposed <strong>NS-Extractor</strong>.<br></li>
+    <li><strong>Normal</strong> RIR 
+        means the RT60 of RIRs is between <strong>0.1s</strong> and <strong>0.5s</strong>.<br></li>
+    <li><strong>Faint</strong> RIR 
+        means the RT60 of RIRs is betwwen <strong>0.1s</strong> and <strong>0.2s</strong>.<br></li>
+    <li><strong>Unintruded</strong> speech
+        means that <strong>2 near</strong> speakers and <strong>1 far</strong> speaker appear, with one of the near speakers being <strong>unexpected</strong> and appearing at the <strong>end</strong> of the speech.<br></li>
+    <li><strong>Intruded</strong> speech 
+        means that <strong>1 near</strong> speaker and <strong>1 far</strong> speaker appear.<br></li>
+    <li><strong>Noticed</strong>:
+        a near speaker is within 1.5 meters of the microphone, while a far speaker is more than 1.5 meters away.<br></li>
+</ul>
+<h3 id="case1">Case 1: <strong>normal</strong> RIR & <strong>unintruded</strong> speech</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center"><strong>Case 1</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation2/case1/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -4.53dB</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation2/case1/gt.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case1/mixture.png" alt="Mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case1/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation2/case1/se.wav" type="audio/wav" /></audio><br> SI-SDR = 9.44dB</td>
+      <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/ablation2/case1/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 10.60dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case1/se.png" alt="w/o SE" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case1/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="case2">Case 2: <strong>normal</strong> RIR & <strong>intruded</strong> speech</h3>
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center"><strong>Case 2</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation2/case2/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -14.88dB</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation2/case2/gt.wav" type="audio/wav" /></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case2/mixture.png" alt="Mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case2/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation2/case2/se.wav" type="audio/wav" /></audio><br> SI-SDR = -22.15dB</td>
+      <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/ablation2/case2/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 5.85dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case2/se.png" alt="w/o SE" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case2/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="case3">Case 3: <strong>faint</strong> RIR & <strong>unintruded</strong> speech</h3>
+          
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center"><strong>Case 3</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation2/case3/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = 2.27dB</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation2/case3/gt.wav" type="audio/wav" /></audio><br></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case3/mixture.png" alt="Mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case3/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation2/case3/se.wav" type="audio/wav" /></audio><br> SI-SDR = 14.22dB</td>
+      <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/ablation2/case3/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 16.26dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case3/se.png" alt="w/o SE" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case3/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="case4">Case 4: <strong>faint</strong> RIR & <strong>intruded</strong> speech</h3>
+          
+          
+<table>
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align: center"><strong>Case 4</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Mixture</strong> <br /><audio controls=""><source src="./wav/ablation2/case4/mixture.wav" type="audio/wav" /></audio><br> SI-SDR = -0.53dB</td>
+      <td style="text-align: center"><strong>GT</strong> <br />  <audio controls=""><source src="./wav/ablation2/case4/gt.wav" type="audio/wav" /></audio><br></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case4/mixture.png" alt="Mixture" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case4/gt.png" alt="GT" width="100%" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>w/o SE</strong> <br /> <audio controls=""><source src="./wav/ablation2/case4/se.wav" type="audio/wav" /></audio><br> SI-SDR = 0.34dB</td>
+      <td style="text-align: center"><strong>Proposed</strong> <br /> <audio controls=""><source src="./wav/ablation2/case4/proposed.wav" type="audio/wav" /></audio><br> SI-SDR = 11.63dB</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="./pic/ablation2/case4/se.png" alt="w/o SE" width="100%" /></td>
+      <td style="text-align: center"><img src="./pic/ablation2/case4/proposed.png" alt="Proposed" width="100%" /></td>
+    </tr>
+  </tbody>
+</table>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Focus on the Sound around You: Monaural Target Speaker Extraction via Distance and Speaker Information matained byy <a href="https://github.com/thuhcsi">thuhcsi</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+  
+
+</body></html>
